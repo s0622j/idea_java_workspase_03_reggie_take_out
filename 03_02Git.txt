@@ -1,0 +1,64 @@
+设置用户信息
+   git config --global user.name "itcast"
+   git config --global user.email "hello@itcast.cn"
+查看配置信息
+   git config --list
+注意：上面设置的user.name和user.email并不是我们在注册码云账号时使用的用户名和邮箱，此处可以任意设置。
+
+
+获取Git   1、仓库-在本地初始化Git仓库
+执行步骤如下：
+1. 在任意目录下创建一个空目录（例如repo1）作为我们的本地Git仓库
+2. 进入这个目录中，点击右键打开Git bash窗口
+3. 执行命令git init
+如果在当前目录中看到.git文件夹（此文件夹为隐藏文件夹）则说明Git仓库创建成功
+
+
+获取Git   2、仓库-从远程仓库克隆
+可以通过Git提供的命令从远程仓库进行克隆，将远程仓库克隆到本地
+命令形式：git clone 【远程Git仓库地址】
+
+
+Git工作区中文件的状态
+Git工作区中的文件存在两种状态：
+  untracked 未跟踪（未被纳入版本控制）
+  tracked 已跟踪（被纳入版本控制）
+        1）Unmodified 未修改状态
+        2）Modified 已修改状态
+        3）Staged 已暂存状态
+注意：这些文件的状态会随着我们执行Git的命令发生变化
+
+
+本地仓库常用命令如下：
+git status  查看文件状态
+git add     将文件的修改加入暂存区
+git reset   将暂存区的文件取消暂存或者是切换到指定版本  git reset --hard xxx版本号
+git commit  将暂存区的文件修改提交到版本库  git commit -m "注释" 脚本
+git log     查看日志
+
+
+远程仓库操作
+前面执行的命令操作都是针对的本地仓库，本节我们会学习关于远程仓库的一些操作，具体包括：
+  git remote     查看远程仓库   git remote -v
+  git remote add 添加远程仓库   git remote add <shortname(一般用origin)> <url>
+  git clone      从远程仓库克隆 git clone [url]
+  git pull       从远程仓库拉取
+  git push       推送到远程仓库 git push [remote-name] [branch-name]     例 git push origin master
+
+
+分支是Git 使用过程中非常重要的概念。使用分支意味着你可以把你的工作从开发主线上分离开来，以免影响开发主线。
+同一个仓库可以有多个分支，各个分支相互独立，互不干扰。
+通过git init 命令创建本地仓库时默认会创建一个master分支。
+本节我们会学习关于分支的相关命令，具体如下：
+  git branch                  查看分支  git branch -r          git branch -a
+  git branch [name]           创建分支
+  git checkout [name]         切换分支
+  git push [shortName] [name] 推送至远程仓库分支
+  git merge [name]            合并分支
+
+
+标签操作
+  git tag                         列出已有的标签
+  git tag [name]                  创建标签
+  git push [shortName] [name]     将标签推送至远程仓库
+  git checkout -b [branch] [name] 检出标签
